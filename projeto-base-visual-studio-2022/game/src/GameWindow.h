@@ -26,37 +26,44 @@ class GameWindow {
     bool undecorated;
     bool alwaysOnTop;
     bool alwaysRun;
+    bool loadResources;
     bool initAudio;
 
     GameWorld gw;
 
     bool initialized;
 
-public:
-
-    /**
-     * @brief Construct a new GameWindow object.
-     */
-    GameWindow();
-    GameWindow( bool initAudio );
-    GameWindow( int width, int height, std::string title, bool initAudio );
-    GameWindow( int width, int height, std::string title, int targetFPS, bool initAudio );
-    GameWindow( int width, int height, std::string title, bool antialiasing, bool initAudio );
-    GameWindow( int width, int height, std::string title, int targetFPS, bool antialiasing, bool initAudio );
-    GameWindow( int width, int height, std::string title, int targetFPS,
-                bool antialiasing, bool resizable, bool fullScreen,
-                bool undecorated, bool alwaysOnTop, bool alwaysRun, bool initAudio );
-
-    /**
-     * @brief Destroy the GameWindow object.
-     */
-    ~GameWindow();
-
     /**
      * @brief Initializes the Window, starts the game loop and, when it
      * finishes, the window will be finished too.
      */
     void init();
+
+public:
+
+    /**
+     * @brief Construct a new GameWindow object and runs the initialization
+     * method (init).
+     */
+    GameWindow();
+    GameWindow( 
+        int width, 
+        int height, 
+        std::string title, 
+        int targetFPS,
+        bool antialiasing, 
+        bool resizable, 
+        bool fullScreen,
+        bool undecorated, 
+        bool alwaysOnTop, 
+        bool alwaysRun, 
+        bool loadResources, 
+        bool initAudio );
+
+    /**
+     * @brief Destroy the GameWindow object.
+     */
+    ~GameWindow();
 
     // getters
     int getWidth() const;
@@ -69,6 +76,7 @@ public:
     bool isUndecorated() const;
     bool isAlwaysOnTop() const;
     bool isAlwaysRun() const;
+    bool isLoadResources() const;
     bool isInitAudio() const;
     bool isInitialized() const;
 
@@ -83,6 +91,7 @@ public:
     void setUndecorated( bool undecorated );
     void setAlwaysOnTop( bool alwaysOnTop );
     void setAlwaysRun( bool alwaysRun );
+    void setLoadResources( bool loadResources );
     void setInitAudio( bool initAudio );
     
 };

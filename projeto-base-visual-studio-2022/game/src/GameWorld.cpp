@@ -10,11 +10,12 @@
 
 #include "GameWorld.h"
 #include "ResourceManager.h"
+
 #include "raylib.h"
 //#include "raymath.h"
-//#define RAYGUI_IMPLEMENTATION
-//#include "raygui.h"
-//#undef RAYGUI_IMPLEMENTATION
+//#define RAYGUI_IMPLEMENTATION    // to use raygui, comment these three lines.
+//#include "raygui.h"              // other compilation units must only include
+//#undef RAYGUI_IMPLEMENTATION     // raygui.h
 
 /**
  * @brief Construct a new GameWorld object
@@ -55,16 +56,17 @@ void GameWorld::draw() {
 }
 
 /**
- * @brief Load game resources like images, textures, sounds, fonts, shaders etc.
- * Should be called inside the constructor.
+ * @brief Load game resources like images, textures, sounds, fonts, shaders,
+ * etc. It will be called in Game Window after the creation of the Raylib
+ * window.
  */
 void GameWorld::loadResources() {
     ResourceManager::loadResources();
 }
 
 /**
- * @brief Unload the once loaded game resources.
- * Should be called inside the destructor.
+ * @brief Unload the once loaded game resources. It will be called
+ * after the game loop ends.
  */
 void GameWorld::unloadResources() {
     ResourceManager::unloadResources();

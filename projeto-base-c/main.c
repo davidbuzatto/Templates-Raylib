@@ -19,12 +19,13 @@ int main( void ) {
         450,             // height
         "Window Title",  // title
         60,              // target FPS
-        true,            // antialiazing
+        true,            // antialiasing
         false,           // resizable
         false,           // full screen
         false,           // undecorated
         false,           // always on top
         false,           // always run
+        false,           // load resources
         false            // init audio
     );
 

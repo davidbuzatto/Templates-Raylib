@@ -17,21 +17,18 @@ std::map<std::string, Music> ResourceManager::musics;
 
 void ResourceManager::loadTextures() {
     if ( textures.empty() ) {
-        // load textures...
         textures["marioSpriteMap"] = LoadTexture( "resources/images/mario.png" );
     }
 }
 
 void ResourceManager::loadSounds() {
     if ( sounds.empty() ) {
-        // load sounds...
         sounds["powerUp"] = LoadSound( "resources/sfx/powerUp.wav" );
     }
 }
 
 void ResourceManager::loadMusics() {
     if ( musics.empty() ) {
-        // load musics...
         musics["overworld1"] = LoadMusicStream( "resources/musics/overworld1.ogg" );
     }
 }

@@ -38,14 +38,14 @@ public:
 
     /**
      * @brief Load game resources like images, textures, sounds, fonts, shaders,
-     * etc.
-     * Should be called inside the constructor.
+     * etc. It will be called in Game Window after the creation of the Raylib
+     * window.
      */
     static void loadResources();
 
     /**
-     * @brief Unload the once loaded game resources.
-     * Should be called inside the destructor.
+     * @brief Unload the once loaded game resources. It will be called
+     * after the game loop ends.
      */
     static void unloadResources();
     

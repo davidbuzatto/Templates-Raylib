@@ -13,9 +13,22 @@
 #include "ResourceManager.h"
 #include "raylib.h"
 
-GameWindow* createGameWindow( int width, int height, const char *title, int targetFPS,
-                          bool antialiasing, bool resizable, bool fullScreen,
-                          bool undecorated, bool alwaysOnTop, bool alwaysRun, bool initAudio ) {
+/**
+ * @brief Creates a dinamically allocated GameWindow struct instance.
+ */
+GameWindow* createGameWindow( 
+        int width, 
+        int height, 
+        const char *title, 
+        int targetFPS,
+        bool antialiasing, 
+        bool resizable, 
+        bool fullScreen,
+        bool undecorated, 
+        bool alwaysOnTop, 
+        bool alwaysRun, 
+        bool loadResources, 
+        bool initAudio ) {
 
     GameWindow *gameWindow = (GameWindow*) malloc( sizeof( GameWindow ) );
 
@@ -29,6 +42,7 @@ GameWindow* createGameWindow( int width, int height, const char *title, int targ
     gameWindow->undecorated = undecorated;
     gameWindow->alwaysOnTop = alwaysOnTop;
     gameWindow->alwaysRun = alwaysRun;
+    gameWindow->loadResources = loadResources;
     gameWindow->initAudio = initAudio;
     gameWindow->gw = NULL;
     gameWindow->initialized = false;
@@ -37,11 +51,10 @@ GameWindow* createGameWindow( int width, int height, const char *title, int targ
 
 }
 
-void destroyGameWindow( GameWindow *gameWindow ) {
-    destroyGameWorld( gameWindow->gw );
-    free( gameWindow );
-}
-
+/**
+ * @brief Initializes the Window, starts the game loop and, when it
+ * finishes, the window will be finished and destroyed too.
+ */
 void initGameWindow( GameWindow *gameWindow ) {
 
     if ( !gameWindow->initialized ) {
@@ -73,25 +86,45 @@ void initGameWindow( GameWindow *gameWindow ) {
         }
 
         InitWindow( gameWindow->width, gameWindow->height, gameWindow->title );
+
         if ( gameWindow->initAudio ) {
             InitAudioDevice();
         }
+
         SetTargetFPS( gameWindow->targetFPS );    
 
-        loadResourcesResourceManager();
+        if ( gameWindow->loadResources ) {
+            loadResourcesResourceManager();
+        }
+
         gameWindow->gw = createGameWorld();
+
+        // game loop
         while ( !WindowShouldClose() ) {
             inputAndUpdateGameWorld( gameWindow->gw );
             drawGameWorld( gameWindow->gw );
         }
-        unloadResourcesResourceManager();
+
+        if ( gameWindow->loadResources ) {
+            unloadResourcesResourceManager();
+        }
+
         destroyGameWindow( gameWindow );
 
         if ( gameWindow->initAudio ) {
             CloseAudioDevice();
         }
+
         CloseWindow();
 
     }
 
+}
+
+/**
+ * @brief Destroys a GameWindow object and its dependecies.
+ */
+void destroyGameWindow( GameWindow *gameWindow ) {
+    destroyGameWorld( gameWindow->gw );
+    free( gameWindow );
 }

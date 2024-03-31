@@ -1,7 +1,7 @@
 /**
  * @file ResourceManager.h
  * @author Prof. Dr. David Buzatto
- * @brief ResourceManager struct and functions declarations.
+ * @brief ResourceManager struct and function declarations.
  * 
  * @copyright Copyright (c) 2024
  */
