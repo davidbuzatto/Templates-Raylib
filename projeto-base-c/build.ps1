@@ -1,4 +1,4 @@
-# Custom build script.
+# Custom build script (windows powershell).
 #
 # Usage:
 #    .\build.ps1: clean, compile and run
