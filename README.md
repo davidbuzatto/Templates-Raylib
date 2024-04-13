@@ -1,6 +1,6 @@
 # Templates-Raylib
 
-Templates de projetos em C e C++ usando a engine de jogos Raylib.
+Templates de projetos em C, C++ e Java usando a engine de jogos Raylib.
 
 ## Autor
 

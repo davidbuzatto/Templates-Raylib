@@ -30,7 +30,7 @@
     <ProjectGuid>{09EE154F-75D1-248F-7ED4-52CBEA36EBDF}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>projeto-base-visual-studio-2022</RootNamespace>
+    <RootNamespace>game</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -97,43 +97,43 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\_bin\Debug\</OutDir>
-    <IntDir>obj\x64\Debug\projeto-base-visual-studio-2022\</IntDir>
-    <TargetName>projeto-base-visual-studio-2022</TargetName>
+    <IntDir>obj\x64\Debug\game\</IntDir>
+    <TargetName>game</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\_bin\Debug\</OutDir>
-    <IntDir>obj\x86\Debug\projeto-base-visual-studio-2022\</IntDir>
-    <TargetName>projeto-base-visual-studio-2022</TargetName>
+    <IntDir>obj\x86\Debug\game\</IntDir>
+    <TargetName>game</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\_bin\Debug\</OutDir>
-    <IntDir>obj\ARM64\Debug\projeto-base-visual-studio-2022\</IntDir>
-    <TargetName>projeto-base-visual-studio-2022</TargetName>
+    <IntDir>obj\ARM64\Debug\game\</IntDir>
+    <TargetName>game</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\_bin\Release\</OutDir>
-    <IntDir>obj\x64\Release\projeto-base-visual-studio-2022\</IntDir>
-    <TargetName>projeto-base-visual-studio-2022</TargetName>
+    <IntDir>obj\x64\Release\game\</IntDir>
+    <TargetName>game</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\_bin\Release\</OutDir>
-    <IntDir>obj\x86\Release\projeto-base-visual-studio-2022\</IntDir>
-    <TargetName>projeto-base-visual-studio-2022</TargetName>
+    <IntDir>obj\x86\Release\game\</IntDir>
+    <TargetName>game</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\_bin\Release\</OutDir>
-    <IntDir>obj\ARM64\Release\projeto-base-visual-studio-2022\</IntDir>
-    <TargetName>projeto-base-visual-studio-2022</TargetName>
+    <IntDir>obj\ARM64\Release\game\</IntDir>
+    <TargetName>game</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

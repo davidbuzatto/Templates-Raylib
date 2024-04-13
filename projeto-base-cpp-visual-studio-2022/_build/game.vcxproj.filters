@@ -1,13 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{21EB8090-0D4E-1035-B6D3-48EBA215DCB7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{E9C7FDCE-D52A-8D73-7EB0-C5296AF258F6}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game\src\GameWindow.cpp">
       <Filter>Source Files</Filter>
@@ -50,5 +42,13 @@
     <ClInclude Include="..\game\src\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{8d57c03b-f67d-4448-aa53-6f04545eaca1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{766801da-b96e-48d6-af6f-08a0a376c85b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
