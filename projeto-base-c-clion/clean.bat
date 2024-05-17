@@ -1,0 +1,1 @@
+rmdir cmake-build-debug /S /Q
