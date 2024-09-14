@@ -13,8 +13,8 @@
 /*---------------------------------------------
  * Library headers.
  *-------------------------------------------*/
-#include "raylib.h"
-//#include "raymath.h"
+#include "raylib/raylib.h"
+//#include "raylib/raymath.h"
 
 /*---------------------------------------------
  * Project headers.

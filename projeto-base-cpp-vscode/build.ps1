@@ -37,15 +37,15 @@ if ( $clean -or $cleanAndCompile -or $all ) {
 # compile
 if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
     Write-Host "Compiling..."
-    g++ *.cpp -o $CompiledFile `
+    g++ src/*.cpp -o $CompiledFile `
         -O1 `
         -Wall `
         -Wextra `
         -Wno-unused-parameter `
         -pedantic-errors `
-        -std=c++23 `
+        -std=c++20 `
         -Wno-missing-braces `
-        -I include/ `
+        -I src/include/ `
         -L lib/ `
         -lraylib `
         -lopengl32 `

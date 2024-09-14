@@ -9,7 +9,7 @@
 #include <string>
 
 #include "ResourceManager.h"
-#include "raylib.h"
+#include "raylib/raylib.h"
 
 std::map<std::string, Texture2D> ResourceManager::textures;
 std::map<std::string, Sound> ResourceManager::sounds;

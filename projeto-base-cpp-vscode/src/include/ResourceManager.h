@@ -10,7 +10,7 @@
 #include <map>
 #include <string>
 
-#include "raylib.h"
+#include "raylib/raylib.h"
 
 class ResourceManager {
 

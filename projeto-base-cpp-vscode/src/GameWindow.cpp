@@ -9,7 +9,7 @@
 #include <string>
 
 #include "GameWindow.h"
-#include "raylib.h"
+#include "raylib/raylib.h"
 
 /**
  * @brief Construct a new GameWindow object and runs the initialization
