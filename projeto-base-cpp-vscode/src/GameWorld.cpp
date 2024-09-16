@@ -14,7 +14,7 @@
 #include "raylib/raylib.h"
 //#include "raylib/raymath.h"
 //#define RAYGUI_IMPLEMENTATION    // to use raygui, comment these three lines.
-//#include "raylib/raygui.h"              // other compilation units must only include
+//#include "raylib/raygui.h"       // other compilation units must only include
 //#undef RAYGUI_IMPLEMENTATION     // raygui.h
 
 /**
