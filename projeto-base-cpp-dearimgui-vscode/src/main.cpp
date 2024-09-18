@@ -16,7 +16,7 @@ int main() {
         "Window Title",  // title
         60,              // target FPS
         true,            // antialiasing
-        false,           // resizable
+        true,            // resizable
         false,           // full screen
         false,           // undecorated
         false,           // always on top

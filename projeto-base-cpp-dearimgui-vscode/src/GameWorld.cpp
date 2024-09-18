@@ -59,7 +59,7 @@ void GameWorld::draw() {
     rlImGuiBegin();
 
     bool open = true;
-	ImGui::ShowDemoWindow(&open);
+	ImGui::ShowDemoWindow( &open );
 
     // ends the ImGui content mode. Make all ImGui calls before this
     rlImGuiEnd();
