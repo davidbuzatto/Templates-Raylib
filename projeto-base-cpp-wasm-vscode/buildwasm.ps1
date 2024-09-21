@@ -41,8 +41,7 @@ if ( $clean -or $cleanAndCompile -or $all ) {
 
 # compile
 # resources
-#--preload-file imageFolder
-#--preload-file soundFolder
+#--preload-file ./resources `
 if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
     Write-Host "Compiling..."
     New-Item -Path ".\$BuildDir" -ItemType Directory > $null
