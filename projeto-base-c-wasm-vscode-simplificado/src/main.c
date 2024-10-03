@@ -47,12 +47,12 @@
 /**
  * @brief Reads user input and updates the state of the game.
  */
-void inputAndUpdate();
+void inputAndUpdate( void );
 
 /**
  * @brief Draws the state of the game.
  */
-void draw();
+void draw( void );
 
 /**
  * @brief Game entry point.
@@ -93,11 +93,11 @@ int main( void ) {
 
 }
 
-void inputAndUpdate() {
+void inputAndUpdate( void ) {
 
 }
 
-void draw() {
+void draw( void ) {
 
     BeginDrawing();
     ClearBackground( WHITE );
