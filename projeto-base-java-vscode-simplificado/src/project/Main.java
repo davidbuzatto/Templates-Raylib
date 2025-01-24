@@ -1,7 +1,7 @@
 package project;
 
-import static com.raylib.Jaylib.BLACK;
-import static com.raylib.Jaylib.WHITE;
+import static com.raylib.Colors.BLACK;
+import static com.raylib.Colors.WHITE;
 import static com.raylib.Raylib.BeginDrawing;
 import static com.raylib.Raylib.ClearBackground;
 import static com.raylib.Raylib.CloseWindow;
