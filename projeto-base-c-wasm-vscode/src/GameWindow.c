@@ -3,7 +3,7 @@
  * @author Prof. Dr. David Buzatto
  * @brief GameWindow implementation.
  * 
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 #include <stdlib.h>
 #include <stdbool.h>

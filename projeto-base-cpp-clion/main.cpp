@@ -4,7 +4,7 @@
  * @brief Main function. Base template for game development in C++ using
  * Raylib (https://www.raylib.com/).
  * 
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 #include "include/GameWindow.h"
 

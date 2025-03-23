@@ -3,7 +3,7 @@
  * @author Prof. Dr. David Buzatto
  * @brief Utility functions implementation.
  * 
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 #include "raylib.h"
 #include "include/utils.h"
