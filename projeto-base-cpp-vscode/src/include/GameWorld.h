@@ -4,7 +4,7 @@
  * @brief GameWorld class declaration. This class should contain all
  * game components and its state.
  * 
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 #pragma once
 
@@ -29,7 +29,7 @@ public:
     /**
      * @brief Reads user input and updates the state of the game.
      */
-    void inputAndUpdate();
+    void update( float delta );
 
     /**
      * @brief Draws the state of the game.

@@ -3,7 +3,7 @@
  * @author Prof. Dr. David Buzatto
  * @brief GameWindow struct and function declarations.
  * 
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) 2025
  */
 #pragma once
 

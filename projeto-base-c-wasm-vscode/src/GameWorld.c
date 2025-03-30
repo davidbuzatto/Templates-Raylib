@@ -40,7 +40,7 @@ void destroyGameWorld( GameWorld *gw ) {
 /**
  * @brief Reads user input and updates the state of the game.
  */
-void inputAndUpdateGameWorld( GameWorld *gw ) {
+void updateGameWorld( GameWorld *gw, float delta ) {
 
 }
 

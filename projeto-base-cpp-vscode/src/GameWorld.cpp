@@ -30,7 +30,7 @@ GameWorld::~GameWorld() = default;
 /**
  * @brief Reads user input and updates the state of the game.
  */
-void GameWorld::inputAndUpdate() {
+void GameWorld::update( float delta ) {
 
 }
 

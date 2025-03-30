@@ -105,7 +105,7 @@ void GameWindow::init() {
 
         // game loop
         while ( !WindowShouldClose() ) {
-            gw.inputAndUpdate();
+            gw.update( GetFrameTime() );
             gw.draw();
         }
 

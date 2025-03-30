@@ -47,7 +47,7 @@
 /**
  * @brief Reads user input and updates the state of the game.
  */
-void inputAndUpdate( void );
+void update( float delta );
 
 /**
  * @brief Draws the state of the game.
@@ -78,7 +78,7 @@ int main( void ) {
 
     // game loop
     while ( !WindowShouldClose() ) {
-        inputAndUpdate();
+        update( GetFrameTime() );
         draw();
     }
 
@@ -93,7 +93,7 @@ int main( void ) {
 
 }
 
-void inputAndUpdate( void ) {
+void update( float delta ) {
 
 }
 

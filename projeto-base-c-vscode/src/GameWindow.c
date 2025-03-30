@@ -101,7 +101,7 @@ void initGameWindow( GameWindow *gameWindow ) {
 
         // game loop
         while ( !WindowShouldClose() ) {
-            inputAndUpdateGameWorld( gameWindow->gw );
+            updateGameWorld( gameWindow->gw, GetFrameTime() );
             drawGameWorld( gameWindow->gw );
         }
 

@@ -114,7 +114,7 @@ public class GameWindow {
             
             // game loop
             while ( !WindowShouldClose() ) {
-                gw.inputAndUpdate();
+                gw.update();
                 gw.draw();
             }
 

@@ -53,7 +53,7 @@ public class Main {
         
         // game loop
         while ( !WindowShouldClose() ) {
-            inputAndUpdate();
+            update();
             draw();
         }
 
@@ -69,7 +69,7 @@ public class Main {
     }
 
     // Reads user input and updates the state of the game.
-    private static void inputAndUpdate() {
+    private static void update() {
 
     }
 
