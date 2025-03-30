@@ -72,7 +72,7 @@ GOTO nextStep
 
 :compile
 ECHO Compiling...
-g++ src/*.cpp -o %CompiledFile% -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++20 -Wno-missing-braces -I src/include/ -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm
+g++ src/*.cpp src/imgui/*.cpp src/rlImGui/*.cpp -o %CompiledFile% -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++20 -Wno-missing-braces -I src/include/ -I src/include/imgui -I src/include/raylib -I src/include/rlImGui -I src/include/rlImGui/extras -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm
 GOTO nextStep
 
 :run

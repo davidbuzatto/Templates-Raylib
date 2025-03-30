@@ -37,7 +37,7 @@ if ( $clean -or $cleanAndCompile -or $all ) {
 # compile
 if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
     Write-Host "Compiling..."
-    g++ src/*.cpp -o $CompiledFile `
+    g++ src/*.cpp src/imgui/*.cpp src/rlImGui/*.cpp -o $CompiledFile `
         -O1 `
         -Wall `
         -Wextra `
@@ -46,6 +46,10 @@ if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
         -std=c++20 `
         -Wno-missing-braces `
         -I src/include/ `
+        -I src/include/imgui `
+        -I src/include/raylib `
+        -I src/include/rlImGui `
+        -I src/include/rlImGui/extras `
         -L lib/ `
         -lraylib `
         -lopengl32 `
