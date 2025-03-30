@@ -11,6 +11,7 @@ import static com.raylib.Raylib.DrawText;
 import static com.raylib.Raylib.EndDrawing;
 import static com.raylib.Raylib.FLAG_MSAA_4X_HINT;
 import static com.raylib.Raylib.GetFontDefault;
+import static com.raylib.Raylib.GetFrameTime;
 import static com.raylib.Raylib.GetScreenHeight;
 import static com.raylib.Raylib.GetScreenWidth;
 import static com.raylib.Raylib.InitWindow;
@@ -53,7 +54,7 @@ public class Main {
         
         // game loop
         while ( !WindowShouldClose() ) {
-            update();
+            update( GetFrameTime() );
             draw();
         }
 
@@ -69,7 +70,7 @@ public class Main {
     }
 
     // Reads user input and updates the state of the game.
-    private static void update() {
+    private static void update( float delta ) {
 
     }
 

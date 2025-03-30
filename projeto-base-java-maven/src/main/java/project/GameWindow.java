@@ -8,6 +8,7 @@ import static com.raylib.Raylib.FLAG_WINDOW_ALWAYS_RUN;
 import static com.raylib.Raylib.FLAG_WINDOW_RESIZABLE;
 import static com.raylib.Raylib.FLAG_WINDOW_TOPMOST;
 import static com.raylib.Raylib.FLAG_WINDOW_UNDECORATED;
+import static com.raylib.Raylib.GetFrameTime;
 import static com.raylib.Raylib.InitAudioDevice;
 import static com.raylib.Raylib.InitWindow;
 import static com.raylib.Raylib.SetConfigFlags;
@@ -114,7 +115,7 @@ public class GameWindow {
             
             // game loop
             while ( !WindowShouldClose() ) {
-                gw.update();
+                gw.update( GetFrameTime() );
                 gw.draw();
             }
 

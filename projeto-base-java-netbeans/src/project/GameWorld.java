@@ -25,7 +25,7 @@ public class GameWorld implements Drawable {
     /**
      * Reads user input and updates the state of the game.
      */
-    public void update() {
+    public void update( float delta ) {
         
     }
     
