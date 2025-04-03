@@ -38,16 +38,16 @@ INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 # C flags
-#CFLAGS := -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++23 -Wno-missing-braces
+CFLAGS := $(INC_FLAGS) -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c99 -Wno-missing-braces
+
+# C++ flags
+# The -MMD and -MP flags together generate Makefiles for us!
+# These files will have .d instead of .o as the output.
+CPPFLAGS := $(INC_FLAGS) -MMD -MP -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++20 -Wno-missing-braces
 
 # Linker flags
 LDFLAGS := -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm -lm
 #LDFLAGS_LINUX := -L lib/ -lraylib -lopengl32 -lgdi32 -lm -lrt -ldl -lX11 -lpthread -lxcb -lXau -lXdmcp
-
-# The -MMD and -MP flags together generate Makefiles for us!
-# These files will have .d instead of .o as the output.
-CFLAGS := $(INC_FLAGS) -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c99 -Wno-missing-braces
-CPPFLAGS := $(INC_FLAGS) -MMD -MP -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++20 -Wno-missing-braces
 
 # The final build step.
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
