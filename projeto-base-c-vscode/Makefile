@@ -15,6 +15,7 @@ TARGET_EXEC := $(lastword $(notdir $(shell pwd)))
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
+PLATFORM := $(shell uname)
 
 all: compile run
 compile: $(BUILD_DIR)/$(TARGET_EXEC)
@@ -46,8 +47,11 @@ CFLAGS := $(INC_FLAGS) -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors 
 CPPFLAGS := $(INC_FLAGS) -MMD -MP -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++20 -Wno-missing-braces
 
 # Linker flags
+ifeq ($(PLATFORM), Linux)
+LDFLAGS := -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+else
 LDFLAGS := -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm -lm
-#LDFLAGS_LINUX := -L lib/ -lraylib -lopengl32 -lgdi32 -lm -lrt -ldl -lX11 -lpthread -lxcb -lXau -lXdmcp
+endif
 
 # The final build step.
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
