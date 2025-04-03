@@ -11,10 +11,11 @@
 # author: Prof. Dr. David Buzatto
 
 # Thanks to Job Vranish (https://spin.atomicobject.com/2016/08/26/makefile-c-projects/)
-TARGET_EXEC := $(lastword $(notdir $(shell pwd))).exe
+TARGET_EXEC := $(lastword $(notdir $(shell pwd)))
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
+PLATFORM := $(shell uname)
 
 all: compile run
 compile: $(BUILD_DIR)/$(TARGET_EXEC)
@@ -38,16 +39,19 @@ INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 # C flags
-#CFLAGS := -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++23 -Wno-missing-braces
+CFLAGS := $(INC_FLAGS) -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c99 -Wno-missing-braces
 
-# Linker flags
-LDFLAGS := -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm -lm
-#LDFLAGS_LINUX := -L lib/ -lraylib -lopengl32 -lgdi32 -lm -lrt -ldl -lX11 -lpthread -lxcb -lXau -lXdmcp
-
+# C++ flags
 # The -MMD and -MP flags together generate Makefiles for us!
 # These files will have .d instead of .o as the output.
-CFLAGS := $(INC_FLAGS) -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c99 -Wno-missing-braces
 CPPFLAGS := $(INC_FLAGS) -MMD -MP -O1 -Wall -Wextra -Wno-unused-parameter -pedantic-errors -std=c++20 -Wno-missing-braces
+
+# Linker flags
+ifeq ($(PLATFORM), Linux)
+LDFLAGS := -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+else
+LDFLAGS := -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm -lm
+endif
 
 # The final build step.
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
