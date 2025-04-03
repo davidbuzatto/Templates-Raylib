@@ -11,7 +11,7 @@
 # author: Prof. Dr. David Buzatto
 
 # Thanks to Job Vranish (https://spin.atomicobject.com/2016/08/26/makefile-c-projects/)
-TARGET_EXEC := $(lastword $(notdir $(shell pwd))).exe
+TARGET_EXEC := $(lastword $(notdir $(shell pwd)))
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
