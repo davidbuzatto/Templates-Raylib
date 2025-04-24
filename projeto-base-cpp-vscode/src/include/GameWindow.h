@@ -25,6 +25,7 @@ class GameWindow {
     bool fullScreen;
     bool undecorated;
     bool alwaysOnTop;
+    bool invisibleBackground;
     bool alwaysRun;
     bool loadResources;
     bool initAudio;
@@ -56,6 +57,7 @@ public:
         bool fullScreen,
         bool undecorated, 
         bool alwaysOnTop, 
+        bool invisibleBackground, 
         bool alwaysRun, 
         bool loadResources, 
         bool initAudio );

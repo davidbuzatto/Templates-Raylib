@@ -23,6 +23,7 @@ typedef struct GameWindow {
     bool fullScreen;
     bool undecorated;
     bool alwaysOnTop;
+    bool invisibleBackground;
     bool alwaysRun;
     bool loadResources;
     bool initAudio;
@@ -46,6 +47,7 @@ GameWindow* createGameWindow(
         bool fullScreen,
         bool undecorated, 
         bool alwaysOnTop, 
+        bool invisibleBackground, 
         bool alwaysRun, 
         bool loadResources, 
         bool initAudio );

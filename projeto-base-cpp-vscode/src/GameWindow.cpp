@@ -24,6 +24,7 @@ GameWindow::GameWindow( int width,
         bool fullScreen,
         bool undecorated, 
         bool alwaysOnTop, 
+        bool invisibleBackground, 
         bool alwaysRun, 
         bool loadResources, 
         bool initAudio ) :
@@ -37,6 +38,7 @@ GameWindow::GameWindow( int width,
         fullScreen( fullScreen ),
         undecorated( undecorated ),
         alwaysOnTop( alwaysOnTop ),
+        invisibleBackground( invisibleBackground ),
         alwaysRun( alwaysRun ),
         loadResources( loadResources ),
         initAudio( initAudio ),
@@ -77,6 +79,10 @@ void GameWindow::init() {
 
         if ( alwaysOnTop ) {
             SetConfigFlags( FLAG_WINDOW_TOPMOST );
+        }
+
+        if ( invisibleBackground ) {
+            SetConfigFlags( FLAG_WINDOW_TRANSPARENT );
         }
 
         if ( alwaysRun ) {

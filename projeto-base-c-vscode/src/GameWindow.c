@@ -26,6 +26,7 @@ GameWindow* createGameWindow(
         bool fullScreen,
         bool undecorated, 
         bool alwaysOnTop, 
+        bool invisibleBackground, 
         bool alwaysRun, 
         bool loadResources, 
         bool initAudio ) {
@@ -41,6 +42,7 @@ GameWindow* createGameWindow(
     gameWindow->fullScreen = fullScreen;
     gameWindow->undecorated = undecorated;
     gameWindow->alwaysOnTop = alwaysOnTop;
+    gameWindow->invisibleBackground = invisibleBackground;
     gameWindow->alwaysRun = alwaysRun;
     gameWindow->loadResources = loadResources;
     gameWindow->initAudio = initAudio;
@@ -79,6 +81,10 @@ void initGameWindow( GameWindow *gameWindow ) {
 
         if ( gameWindow->alwaysOnTop ) {
             SetConfigFlags( FLAG_WINDOW_TOPMOST );
+        }
+
+        if ( gameWindow->invisibleBackground ) {
+            SetConfigFlags( FLAG_WINDOW_TRANSPARENT );
         }
 
         if ( gameWindow->alwaysRun ) {
