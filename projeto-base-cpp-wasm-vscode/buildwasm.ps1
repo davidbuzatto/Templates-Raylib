@@ -44,7 +44,7 @@ if ( $clean -or $cleanAndCompile -or $all ) {
 #--preload-file ./resources `
 if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
     Write-Host "Compiling..."
-    New-Item -Path ".\$BuildDir" -ItemType Directory > $null
+    New-Item -Path ".\$BuildDir" -Force -ItemType Directory > $null
     emcc -o "./$BuildDir/$CompiledFile.html" `
          ./src/GameWindow.cpp `
          ./src/GameWorld.cpp `
