@@ -3,7 +3,7 @@
  * @author Prof. Dr. David Buzatto
  * @brief Abstract class that models the behavior of drawable components.
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2026
  * 
  */
 #pragma once

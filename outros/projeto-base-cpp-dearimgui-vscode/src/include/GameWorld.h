@@ -4,7 +4,7 @@
  * @brief GameWorld class declaration. This class should contain all
  * game components and its state.
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2026
  */
 #pragma once
 

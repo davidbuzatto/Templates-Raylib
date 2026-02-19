@@ -3,7 +3,7 @@
  * @author Prof. Dr. David Buzatto
  * @brief GameWorld implementation.
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2026
  */
 #include <stdio.h>
 #include <stdlib.h>

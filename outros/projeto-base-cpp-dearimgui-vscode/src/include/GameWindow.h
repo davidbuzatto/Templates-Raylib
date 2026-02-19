@@ -5,7 +5,7 @@
  * the Game World and it is responsible to create a new Raylib window,
  * start the game loop and finish the Raylib window.
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2026
  */
 #pragma once
 

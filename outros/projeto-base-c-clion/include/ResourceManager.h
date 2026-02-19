@@ -3,7 +3,7 @@
  * @author Prof. Dr. David Buzatto
  * @brief ResourceManager struct and function declarations.
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2026
  */
 #pragma once
 
