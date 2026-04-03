@@ -109,9 +109,11 @@ void initGameWindow( GameWindow *gameWindow ) {
             unloadResourcesResourceManager();
         }
 
+        bool initAudio = gameWindow->initAudio;
+
         destroyGameWindow( gameWindow );
 
-        if ( gameWindow->initAudio ) {
+        if ( initAudio ) {
             CloseAudioDevice();
         }
 
