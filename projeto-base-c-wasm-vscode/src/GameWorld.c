@@ -1,5 +1,5 @@
 /**
- * @file GameWorld.h
+ * @file GameWorld.c
  * @author Prof. Dr. David Buzatto
  * @brief GameWorld implementation.
  * 
