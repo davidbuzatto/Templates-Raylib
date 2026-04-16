@@ -61,13 +61,15 @@ if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
          -s USE_SDL=2 `
          -s USE_SDL_MIXER=2 `
          -s ASYNCIFY `
-         -s TOTAL_MEMORY=67108864 `
+         -s INITIAL_MEMORY=134217728 `
+         -s ALLOW_MEMORY_GROWTH=1 `
          -s FORCE_FILESYSTEM=1 `
          --preload-file ./resources@/resources `
          --shell-file ./src/wasm/minshell.html ./lib/wasm/libraylib.a `
          -DPLATFORM_WEB `
          -s 'EXPORTED_FUNCTIONS=["_free","_malloc","_main"]' `
          -s EXPORTED_RUNTIME_METHODS=ccall
+         #-s ASSERTIONS   # uncomment for debugging (increases .wasm size and runtime overhead)
     Copy-Item -Path "$BuildDir" -Destination "$ServerDestination" -Recurse -Force
 }
 
