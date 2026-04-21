@@ -37,7 +37,7 @@ typedef struct GameWindow {
 /**
  * @brief Creates a dinamically allocated GameWindow struct instance.
  */
-GameWindow* createGameWindow(
+GameWindow *createGameWindow(
         int width, 
         int height, 
         const char *title, 
