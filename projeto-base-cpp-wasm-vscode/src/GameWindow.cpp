@@ -99,8 +99,19 @@ void GameWindow::init() {
 
         // game loop
         while ( !WindowShouldClose() ) {
-            gw.update( GetFrameTime() );
+
+            // The delta time is capped at 1/30s to prevent excessively long
+            // frames (e.g.: slowness during initialization) from causing
+            // large displacements that make characters pass through
+            // obstacles (tunneling)
+            float delta = GetFrameTime();
+            if ( delta > 1.0f / 30.0f ) {
+                delta = 1.0f / 30.0f;
+            }
+
+            gw.update( delta );
             gw.draw();
+            
         }
 
         if ( loadResources ) {

@@ -101,8 +101,19 @@ void initGameWindow( GameWindow *gameWindow ) {
 
         // game loop
         while ( !WindowShouldClose() ) {
-            updateGameWorld( gameWindow->gw, GetFrameTime() );
+
+            // The delta time is capped at 1/30s to prevent excessively long
+            // frames (e.g.: slowness during initialization) from causing
+            // large displacements that make characters pass through
+            // obstacles (tunneling)
+            float delta = GetFrameTime();
+            if ( delta > 1.0f / 30.0f ) {
+                delta = 1.0f / 30.0f;
+            }
+
+            updateGameWorld( gameWindow->gw, delta );
             drawGameWorld( gameWindow->gw );
+            
         }
 
         if ( gameWindow->loadResources ) {
@@ -127,6 +138,8 @@ void initGameWindow( GameWindow *gameWindow ) {
  * @brief Destroys a GameWindow object and its dependecies.
  */
 void destroyGameWindow( GameWindow *gameWindow ) {
-    destroyGameWorld( gameWindow->gw );
-    free( gameWindow );
+    if ( gameWindow != NULL ) {
+        destroyGameWorld( gameWindow->gw );
+        free( gameWindow );
+    }
 }
