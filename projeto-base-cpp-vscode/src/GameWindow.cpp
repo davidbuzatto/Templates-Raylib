@@ -8,8 +8,9 @@
 #include <iostream>
 #include <string>
 
-#include "GameWindow.h"
 #include "raylib/raylib.h"
+
+#include "GameWindow.h"
 
 /**
  * @brief Construct a new GameWindow object and runs the initialization

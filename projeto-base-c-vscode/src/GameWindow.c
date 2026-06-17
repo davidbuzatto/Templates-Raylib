@@ -8,10 +8,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include "raylib/raylib.h"
+
 #include "GameWindow.h"
 #include "GameWorld.h"
 #include "ResourceManager.h"
-#include "raylib/raylib.h"
 
 /**
  * @brief Creates a dinamically allocated GameWindow struct instance.
