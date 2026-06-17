@@ -8,9 +8,7 @@
  */
 #pragma once
 
-#include "Drawable.h"
-
-class GameWorld : public virtual Drawable {
+class GameWorld {
 
     // private GameWorld attributes
     
@@ -34,7 +32,7 @@ public:
     /**
      * @brief Draws the state of the game.
      */
-    void draw() override;
+    void draw();
 
     /**
      * @brief Load game resources like images, textures, sounds, fonts, shaders,

@@ -22,7 +22,7 @@ clean_project() {
 
 compile_project() {
     echo "Compiling..."
-    cc main.c -o $CompiledFile \
+    cc src/*.c -o $CompiledFile \
         -O1 \
         -Wall \
         -Wextra \
