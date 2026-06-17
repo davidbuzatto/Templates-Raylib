@@ -31,11 +31,15 @@ compile_project() {
         -std=c99 \
         -Wno-missing-braces \
         -I src/include/ \
-        -L lib \
+        -L lib/macos/ \
         -lraylib \
-        -framework IOKit \
+        -framework OpenGL \
         -framework Cocoa \
-        -framework OpenGL 
+        -framework IOKit \
+        -framework CoreVideo \
+        -framework CoreAudio \
+        -framework AudioToolbox \
+        -lm
 }
 
 run_project() {
