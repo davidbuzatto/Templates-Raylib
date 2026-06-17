@@ -39,10 +39,12 @@ if ( $clean -or $cleanAndCompile -or $all ) {
 if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
     Write-Host "Compiling..."
     New-Item -Path ".\$BuildDir" -Force -ItemType Directory > $null
-    # Relative paths (no spaces) + @ splat: each .c must reach emcc as a separate
-    # argument. Passing the array as a single token ($sources) collapses into one
-    # joined string when emcc.ps1 forwards $MyInvocation.UnboundArguments to python.
-    $sources = Get-ChildItem -Path .\src -Recurse -Filter *.c | Resolve-Path -Relative
+    # @(...) forces an array even when there is a single .c file: a lone result is
+    # a scalar string, and splatting a string (@string) iterates its characters.
+    # Relative paths (no spaces) + @ splat make each .c reach emcc as a separate
+    # argument; passing the array as one token ($sources) would instead collapse
+    # into a single joined string when emcc.ps1 forwards UnboundArguments to python.
+    $sources = @(Get-ChildItem -Path .\src -Recurse -Filter *.c | Resolve-Path -Relative)
     emcc -o "./$BuildDir/$CompiledFile.html" `
          @sources `
          -Wall `
