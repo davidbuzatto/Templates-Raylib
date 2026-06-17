@@ -21,7 +21,6 @@ param(
 $CurrentFolderName = Split-Path -Path (Get-Location) -Leaf
 $CompiledFile = "$CurrentFolderName"
 $BuildDir = "build"
-$ServerDestination = "C:\xampp\htdocs\$CompiledFile"
 
 $all = $false
 if ( -not( $clean -or $cleanAndCompile -or $compile -or $compileAndRun -or $run ) ) {
@@ -34,29 +33,28 @@ if ( $clean -or $cleanAndCompile -or $all ) {
     if ( Test-Path $BuildDir ) {
         Remove-Item $BuildDir -Recurse -Force
     }
-    if ( Test-Path $ServerDestination ) {
-        Remove-Item $ServerDestination -Recurse -Force
-    }
 }
 
 # compile
-#--preload-file ./resources `
 if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
     Write-Host "Compiling..."
     New-Item -Path ".\$BuildDir" -Force -ItemType Directory > $null
-    emcc -o "./$BuildDir/$CompiledFile.html" `
-         ./src/GameWindow.c `
-         ./src/GameWorld.c `
-         ./src/main.c `
-         ./src/ResourceManager.c `
+    # @(...) forces an array even when there is a single .cpp file: a lone result
+    # is a scalar string, and splatting a string (@string) iterates its characters.
+    # Relative paths (no spaces) + @ splat make each .cpp reach em++ as a separate
+    # argument; passing the array as one token ($sources) would instead collapse
+    # into a single joined string when em++.ps1 forwards UnboundArguments to python.
+    $sources = @(Get-ChildItem -Path .\src -Recurse -Filter *.cpp | Resolve-Path -Relative)
+    em++ -o "./$BuildDir/$CompiledFile.html" `
+         @sources `
          -Wall `
-         -std=c99 `
+         -std=c++20 `
          -D_DEFAULT_SOURCE `
          -Wno-missing-braces `
          -Wunused-result `
          -Os `
-         -I. -I./src/include `
-         -L. -L./lib/wasm/ `
+         -I./src/include `
+         -L./lib/wasm/ `
          -s USE_GLFW=3 `
          -s USE_SDL=2 `
          -s USE_SDL_MIXER=2 `
@@ -65,19 +63,19 @@ if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
          -s ALLOW_MEMORY_GROWTH=1 `
          -s FORCE_FILESYSTEM=1 `
          --preload-file ./resources@/resources `
-         --shell-file ./src/wasm/minshell.html ./lib/wasm/libraylib.a `
+         --shell-file ./src/wasm/minshell.html `
+         -lraylib `
          -DPLATFORM_WEB `
          -s 'EXPORTED_FUNCTIONS=["_free","_malloc","_main"]' `
          -s EXPORTED_RUNTIME_METHODS=ccall
          #-s ASSERTIONS   # uncomment for debugging (increases .wasm size and runtime overhead)
-    Copy-Item -Path "$BuildDir" -Destination "$ServerDestination" -Recurse -Force
 }
 
 # run
 if ( $run -or $compileAndRun -or $all ) {
     Write-Host "Running..."
-    if ( Test-Path "$ServerDestination\$CompiledFile.html" ) {
-        Start-Process "http://localhost/$CompiledFile/$CompiledFile.html"
+    if ( Test-Path "$BuildDir\$CompiledFile.html" ) {
+        emrun ".\$BuildDir\$CompiledFile.html"
     } else {
         Write-Host "$CompiledFile does not exists!"
     }

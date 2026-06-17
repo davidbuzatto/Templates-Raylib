@@ -46,7 +46,7 @@ if ( $compile -or $cleanAndCompile -or $compileAndRun -or $all ) {
         -std=c++20 `
         -Wno-missing-braces `
         -I src/include/ `
-        -L lib/ `
+        -L lib/win64_mingw-w64/ `
         -lraylib `
         -lopengl32 `
         -lgdi32 `

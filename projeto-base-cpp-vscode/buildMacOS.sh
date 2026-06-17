@@ -22,20 +22,24 @@ clean_project() {
 
 compile_project() {
     echo "Compiling..."
-    cc main.c -o $CompiledFile \
+    c++ src/*.cpp -o $CompiledFile \
         -O1 \
         -Wall \
         -Wextra \
         -Wno-unused-parameter \
         -pedantic-errors \
-        -std=c99 \
+        -std=c++20 \
         -Wno-missing-braces \
         -I src/include/ \
-        -L lib \
+        -L lib/macos/ \
         -lraylib \
-        -framework IOKit \
+        -framework OpenGL \
         -framework Cocoa \
-        -framework OpenGL 
+        -framework IOKit \
+        -framework CoreVideo \
+        -framework CoreAudio \
+        -framework AudioToolbox \
+        -lm
 }
 
 run_project() {

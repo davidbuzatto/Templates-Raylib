@@ -31,6 +31,7 @@ compile_project() {
         -std=c++20 \
         -Wno-missing-braces \
         -I src/include/ \
+        -L lib/linux_amd64/ \
         -lraylib \
         -lGL \
         -lm \
