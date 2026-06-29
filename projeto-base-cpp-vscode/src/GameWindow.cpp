@@ -171,6 +171,10 @@ bool GameWindow::isAlwaysOnTop() const {
     return alwaysOnTop;
 }
 
+bool GameWindow::isInvisibleBackground() const {
+    return invisibleBackground;
+}
+
 bool GameWindow::isAlwaysRun() const {
     return alwaysRun;
 }
@@ -238,6 +242,12 @@ void GameWindow::setUndecorated( bool undecorated ) {
 void GameWindow::setAlwaysOnTop( bool alwaysOnTop ) {
     if ( !initialized ) {
         this->alwaysOnTop = alwaysOnTop;
+    }
+}
+
+void GameWindow::setInvisibleBackground( bool invisibleBackground ) {
+    if ( !initialized ) {
+        this->invisibleBackground = invisibleBackground;
     }
 }
 

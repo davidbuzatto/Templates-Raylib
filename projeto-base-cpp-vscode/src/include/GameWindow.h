@@ -46,8 +46,7 @@ public:
      * @brief Construct a new GameWindow object and runs the initialization
      * method (init).
      */
-    GameWindow();
-    GameWindow( 
+    GameWindow(
         int width, 
         int height, 
         std::string title, 
@@ -77,6 +76,7 @@ public:
     bool isFullScreen() const;
     bool isUndecorated() const;
     bool isAlwaysOnTop() const;
+    bool isInvisibleBackground() const;
     bool isAlwaysRun() const;
     bool isLoadResources() const;
     bool isInitAudio() const;
@@ -92,6 +92,7 @@ public:
     void setFullScreen( bool fullScreen );
     void setUndecorated( bool undecorated );
     void setAlwaysOnTop( bool alwaysOnTop );
+    void setInvisibleBackground( bool invisibleBackground );
     void setAlwaysRun( bool alwaysRun );
     void setLoadResources( bool loadResources );
     void setInitAudio( bool initAudio );

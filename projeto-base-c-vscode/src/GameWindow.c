@@ -127,14 +127,11 @@ void initGameWindow( GameWindow *gameWindow ) {
             unloadResourcesResourceManager();
         }
 
-        bool initAudio = gameWindow->initAudio;
-
-        destroyGameWindow( gameWindow );
-
-        if ( initAudio ) {
+        if ( gameWindow->initAudio ) {
             CloseAudioDevice();
         }
 
+        destroyGameWindow( gameWindow );
         CloseWindow();
 
     }
